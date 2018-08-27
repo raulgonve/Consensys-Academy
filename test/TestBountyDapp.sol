@@ -66,13 +66,29 @@ contract TestBountyDapp {
 
         Assert.equal(total, expected, "25 Submissions must be sent correctly");
     }
+
+    function testNewSubmissions2() public {
+
+        uint i = 0;
+
+        for( i; i < 5; i++ ){
+            bounty.NewSubmissions("Sixth Propose",i);
+            bounty.NewSubmissions("Seventh Propose",i);
+            bounty.NewSubmissions("Eight Propose",i);
+            bounty.NewSubmissions("Ninth Propose",i);
+            bounty.NewSubmissions("Tenth Propose",i);
+        }
+        
+        uint expected = 25;
+        uint total = i * 5;
+
+        Assert.equal(total, expected, "25 Submissions must be sent correctly");
+    }
     
     // this answer 10 submissions, 5 are approved and 5 are decline
-    
+    /*
     function testAnswerPropose() public {
-       
-        bounty.AnswerPropose(true,0,0);            
-        /*
+  
         uint i = 0;
 
         for( i; i < 5; i++ ){
@@ -87,6 +103,6 @@ contract TestBountyDapp {
         uint expected = 10;
         uint total = i * 2; 
         Assert.equal(total, expected, "10 Answers must pass correctly"); 
-        */
     }
+    */
 }

@@ -94,7 +94,7 @@ contract BountyDapp {
     paidEnough(Bounties[_b].Amount) stoppedInEmergency(){
         if (decision == true) {
             // if submission was approved then pay to the hunter
-            require(Submissions[_s].Hunter.transfer(uint(Bounties[_b].Amount)));
+            Submissions[_s].Hunter.transfer(uint(Bounties[_b].Amount));
             Submissions[_s].state = uint(State.Approved);
         } else {
             // if submission was denied the State of the submission change to Decline
